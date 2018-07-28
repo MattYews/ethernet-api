@@ -1,4 +1,4 @@
-package com.ethernet.Main;
+package com.ethernet.main;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
