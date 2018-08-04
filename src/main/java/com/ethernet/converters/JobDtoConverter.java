@@ -16,15 +16,13 @@ public class JobDtoConverter implements Converter<JobDto, Job> {
             return null;
         }
 
-        final Job job = new Job();
-        job.setId(source.getId());
-        job.setShipId(source.getShipId());
-        job.setPlanetStartId(source.getPlanetStartId());
-        job.setPlanetDestinationId(source.getPlanetDestinationId());
-        job.setJobType(JobType.valueOf(source.getJobType()));
-        job.setJobStatus(JobStatus.fromValue(source.getJobStatus()));
-
-        return job;
+        return new Job(source.getId(),
+                source.getShipId(),
+                source.getPlanetStartId(),
+                source.getPlanetDestinationId(),
+                JobType.fromValue(source.getJobType()),
+                JobStatus.fromValue(source.getJobStatus()),
+                source.getVersion());
     }
 
 }

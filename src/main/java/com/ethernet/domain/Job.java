@@ -30,9 +30,10 @@ public class Job extends BaseEntity {
 
     public Job(){}
 
-    public Job(final Integer id, final int planetStartId, final int planetDestinationId, final JobType jobType,
+    public Job(final Integer id, final int shipId, final int planetStartId, final int planetDestinationId, final JobType jobType,
                final JobStatus jobStatus, final int version) {
         setId(id);
+        this.shipId = shipId;
         this.planetStartId = planetStartId;
         this.planetDestinationId = planetDestinationId;
         this.jobType = jobType;

@@ -26,7 +26,7 @@ abstract class BaseEntity implements Serializable {
         this.id = id;
     }
 
-    int getVersion() {
+    public int getVersion() {
         return this.version;
     }
 

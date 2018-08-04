@@ -2,11 +2,9 @@ package com.ethernet.enums;
 
 public enum JobStatus implements PersistableEnum {
 
-    CARGO("Cargo", "cargo"),
+    IN_PROGRESS("In Progress", "inprogress"),
 
-    SMUGGLING("Smuggling", "smuggling"),
-
-    BOUNTY("Bounty", "bounty");
+    COMPLETE("Complete", "complete");
 
     private String prettyName;
     private String internalName;
@@ -18,7 +16,7 @@ public enum JobStatus implements PersistableEnum {
 
     public static JobStatus fromValue(final String value) {
         for (final JobStatus jobStatus : values()) {
-            if (jobStatus.getInternalName().equals(value)) {
+            if (jobStatus.internalName.equals(value)) {
                 return jobStatus;
             }
         }

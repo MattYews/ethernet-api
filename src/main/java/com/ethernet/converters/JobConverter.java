@@ -2,9 +2,10 @@ package com.ethernet.converters;
 
 import com.ethernet.domain.Job;
 import com.ethernet.dtos.JobDto;
-import com.ethernet.enums.PersistableEnum;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
+
+import static com.ethernet.utils.ConverterUtils.enumToString;
 
 @Component(value = "jobConverter")
 public class JobConverter implements Converter<Job, JobDto> {
@@ -15,18 +16,12 @@ public class JobConverter implements Converter<Job, JobDto> {
            return null;
        }
 
-       final JobDto jobDto = new JobDto();
-       jobDto.setId(source.getId());
-       jobDto.setShipId(source.getShipId());
-       jobDto.setPlanetStartId(source.getPlanetStartId());
-       jobDto.setPlanetDestinationId(source.getPlanetDestinationId());
-       jobDto.setJobType(source.getJobType().toString());
-       jobDto.setJobStatus(enumToString(source.getJobStatus()));
-
-       return jobDto;
-    }
-
-    private String enumToString(final PersistableEnum enumValue) {
-        return enumValue.toString();
+       return new JobDto(source.getId(),
+               source.getShipId(),
+               source.getPlanetStartId(),
+               source.getPlanetDestinationId(),
+               enumToString(source.getJobType()),
+               enumToString(source.getJobStatus()),
+               source.getVersion());
     }
 }
