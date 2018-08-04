@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping("/planet")
+@RequestMapping("/ethernet/planet")
 public class PlanetControllerImpl implements PlanetController{
 
     @Autowired

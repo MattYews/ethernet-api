@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping("/pilot")
+@RequestMapping("/ethernet/pilot")
 public class PilotControllerImpl implements PilotController {
 
     @Autowired
