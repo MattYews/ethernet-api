@@ -13,14 +13,14 @@ public class Job extends BaseEntity {
 
     private static final long serialVersionUID = 7375588662901349422L;
 
-    @Column(name = "FK_ShipID")
-    private Integer shipId;
+    //Hibernate join here
+    private Ship ship;
 
-    @Column(name = "FK_Planet_StartID")
-    private int planetStartId;
+    //Hibernate join here
+    private Planet startPlanet;
 
-    @Column(name = "FK_Planet_DestinationID")
-    private int planetDestinationId;
+    //Hibernate join here
+    private Planet destination;
 
     @Column(name = "type")
     private JobType jobType;
@@ -30,39 +30,39 @@ public class Job extends BaseEntity {
 
     public Job(){}
 
-    public Job(final Integer id, final int shipId, final int planetStartId, final int planetDestinationId, final JobType jobType,
-               final JobStatus jobStatus, final int version) {
+    public Job(final Integer id, final Ship ship, final Planet startPlanet, final Planet destination,
+               final JobType jobType, final JobStatus jobStatus, final int version) {
         setId(id);
-        this.shipId = shipId;
-        this.planetStartId = planetStartId;
-        this.planetDestinationId = planetDestinationId;
+        this.ship = ship;
+        this.startPlanet = startPlanet;
+        this.destination = destination;
         this.jobType = jobType;
         this.jobStatus = jobStatus;
         setVersion(version);
     }
 
-    public Integer getShipId() {
-        return shipId;
+    public Ship getShip() {
+        return ship;
     }
 
-    public void setShipId(Integer shipId) {
-        this.shipId = shipId;
+    public void setShip(Ship ship) {
+        this.ship = ship;
     }
 
-    public int getPlanetStartId() {
-        return planetStartId;
+    public Planet getStartPlanet() {
+        return startPlanet;
     }
 
-    public void setPlanetStartId(int planetStartId) {
-        this.planetStartId = planetStartId;
+    public void setStartPlanet(Planet startPlanet) {
+        this.startPlanet = startPlanet;
     }
 
-    public int getPlanetDestinationId() {
-        return planetDestinationId;
+    public Planet getDestination() {
+        return destination;
     }
 
-    public void setPlanetDestinationId(int planetDestinationId) {
-        this.planetDestinationId = planetDestinationId;
+    public void setDestination(Planet destination) {
+        this.destination = destination;
     }
 
     public JobType getJobType() {
